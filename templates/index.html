@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Heat Island Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <main class="container">
+    <h1>Urban Heat Island Prediction</h1>
+    <p class="subtitle">Enter environmental and urban features to estimate heat risk level.</p>
+
+    <form id="prediction-form" class="grid">
+      <label>LST (°C)
+        <input type="number" step="0.1" name="LST" required />
+      </label>
+      <label>NDVI (0 to 1)
+        <input type="number" step="0.01" min="0" max="1" name="NDVI" required />
+      </label>
+      <label>NDBI (0 to 1)
+        <input type="number" step="0.01" min="0" max="1" name="NDBI" required />
+      </label>
+      <label>Population Density (people/km²)
+        <input type="number" step="1" name="Population_Density" required />
+      </label>
+      <label>Building Density (0 to 1)
+        <input type="number" step="0.01" min="0" max="1" name="Building_Density" required />
+      </label>
+      <label>Road Density (km/km²)
+        <input type="number" step="0.1" name="Road_Density" required />
+      </label>
+      <label>Humidity (%)
+        <input type="number" step="0.1" name="Humidity" required />
+      </label>
+      <label>Wind Speed (km/h)
+        <input type="number" step="0.1" name="Wind_Speed" required />
+      </label>
+      <label>Rainfall (mm)
+        <input type="number" step="0.1" name="Rainfall" required />
+      </label>
+      <button type="submit">Predict Heat Risk</button>
+    </form>
+
+    <section id="result" class="result hidden"></section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
